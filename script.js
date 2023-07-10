@@ -76,6 +76,11 @@ window.addEventListener("mousemove", function (event) {
   mouse.y = event.y;
 });
 
+window.addEventListener("resize", function (event) {
+  // Sets the canvas width to the client width and the canvas height to the client height, when the window is resized
+  canvas.width = canvas.clientWidth;
+  canvas.height = canvas.clientHeight;
+});
 drawGrid();
 
 function loop() {
