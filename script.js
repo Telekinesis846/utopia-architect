@@ -20,7 +20,9 @@ let grid = {
 let mouse = {
   x: undefined,
   y: undefined,
+  move: [],
 };
+
 // Calculates the values with expressions
 grid.pixels.y = 0.5 * canvas.height - (grid.squareSize * grid.height) / 2;
 grid.pixels.width = grid.width * grid.squareSize;
@@ -71,6 +73,7 @@ function drawGrid(xPos, yPos) {
 window.addEventListener("mousemove", function (event) {
   mouse.x = event.x;
   mouse.y = event.y;
+  // mouse.move.x.push([mouse.x, mouse.y])
 });
 
 window.addEventListener("resize", function (event) {
@@ -95,6 +98,10 @@ window.addEventListener("keypress", function (event) {
   }
 });
 
+window.addEventListener("mousedown", function (event) {
+  scrollX = mouse.x;
+  scrollY = mouse.y;
+});
 function loop() {
   requestAnimationFrame(loop);
   c.clearRect(0, 0, canvas.width, canvas.height);
