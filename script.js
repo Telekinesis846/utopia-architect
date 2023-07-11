@@ -11,22 +11,25 @@ let grid = {
   squareSize: 150,
   pixels: {
     x: 50,
-    y: null, // These are null because they are calculated later
-    width: null,
-    height: null,
+    y: undefined, // These are undefined because they are calculated later
+    width: undefined,
+    height: undefined,
     lineWidth: 7,
   },
 };
 let mouse = {
-  x: null,
-  y: null,
+  x: undefined,
+  y: undefined,
 };
 // Calculates the values with expressions
 grid.pixels.y = 0.5 * canvas.height - (grid.squareSize * grid.height) / 2;
 grid.pixels.width = grid.width * grid.squareSize;
 grid.pixels.height = grid.height * grid.squareSize;
 
-let gaming = false;
+// Initialises variables
+let inGame = false;
+let scrollX = 0;
+let scrollY = 0;
 
 function drawTitleScreen(titleSize) {
   c.fillStyle = "rgb(0, 51, 0)";
@@ -39,11 +42,11 @@ function drawTitleScreen(titleSize) {
   );
 }
 
-function drawGrid() {
+function drawGrid(xPos, yPos) {
   c.lineWidth = grid.pixels.lineWidth * 2;
   // Draws the outline of the grid and the background
   c.fillStyle = "yellowgreen";
-  c.rect(grid.pixels.x, grid.pixels.y, grid.pixels.width, grid.pixels.height);
+  c.rect(xPos, yPos, grid.pixels.width, grid.pixels.height);
   c.stroke();
   c.fill();
 
@@ -52,20 +55,14 @@ function drawGrid() {
   // Draws the vertical lines of the grid
   for (let i = 1; i < grid.width; i++) {
     c.beginPath();
-    c.moveTo(grid.pixels.x + i * grid.squareSize, grid.pixels.y);
-    c.lineTo(
-      grid.pixels.x + i * grid.squareSize,
-      grid.pixels.y + grid.pixels.height
-    );
+    c.moveTo(xPos + i * grid.squareSize, yPos);
+    c.lineTo(xPos + i * grid.squareSize, yPos + grid.pixels.height);
     c.stroke();
   }
   for (let i = 1; i < grid.height; i++) {
     c.beginPath();
-    c.moveTo(grid.pixels.x, grid.pixels.y + i * grid.squareSize);
-    c.lineTo(
-      grid.pixels.x + grid.pixels.height,
-      grid.pixels.y + i * grid.squareSize
-    );
+    c.moveTo(xPos, yPos + i * grid.squareSize);
+    c.lineTo(xPos + grid.pixels.height, yPos + i * grid.squareSize);
     c.stroke();
   }
 }
@@ -81,15 +78,30 @@ window.addEventListener("resize", function (event) {
   canvas.width = canvas.clientWidth;
   canvas.height = canvas.clientHeight;
 });
-drawGrid();
+
+// Moves the camera on key press
+window.addEventListener("keypress", function (event) {
+  if (event.key === "w") {
+    scrollY += 50;
+  }
+  if (event.key === "a") {
+    scrollX -= 50;
+  }
+  if (event.key === "s") {
+    scrollY -= 50;
+  }
+  if (event.key === "d") {
+    scrollX += 50;
+  }
+});
 
 function loop() {
   requestAnimationFrame(loop);
   c.clearRect(0, 0, canvas.width, canvas.height);
-  if (!gaming) {
+  if (!inGame) {
     drawTitleScreen(75);
   } else {
-    drawGrid();
+    drawGrid(scrollX, scrollY);
   }
 }
 loop();
