@@ -20,7 +20,7 @@ let grid = {
 let mouse = {
   x: undefined,
   y: undefined,
-  move: [],
+  type: undefined,
 };
 
 // Calculates the values with expressions
@@ -88,19 +88,31 @@ window.addEventListener("keypress", function (event) {
     scrollY += 50;
   }
   if (event.key === "a") {
-    scrollX -= 50;
+    scrollX += 50;
   }
   if (event.key === "s") {
     scrollY -= 50;
   }
   if (event.key === "d") {
-    scrollX += 50;
+    scrollX -= 50;
   }
 });
 
 window.addEventListener("mousedown", function (event) {
-  scrollX = mouse.x;
-  scrollY = mouse.y;
+  event.preventDefault();
+  if (event.button == 0) {
+    mouse.type = "left";
+  }
+  if (event.button == 1) {
+    mouse.type = "middle";
+  }
+  if (event.type == 2) {
+    mouse.type = "right";
+  }
+  console.log(mouse.type);
+});
+window.addEventListener("mouseup", function (event) {
+  mouse.type = "up";
 });
 function loop() {
   requestAnimationFrame(loop);
