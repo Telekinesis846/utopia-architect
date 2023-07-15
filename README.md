@@ -6,8 +6,8 @@ This is a game made by Frog co, a group of friends, you build a city where you h
 
 #### These might not be the final controls
 
-WASD / Middle Click Drag / CTRL Left Click Drag: Move view
-Left Click Drag: Move buildings
-R: Reset
-CTRL S: Save game
-Esc: Back / Exit
+WASD / Middle Click Drag / CTRL Left Click Drag: Move view\
+Left Click Drag: Move buildings\
+R: Reset\
+CTRL S: Save game\
+Esc: Back / Exit\
