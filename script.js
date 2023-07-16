@@ -22,16 +22,22 @@ let mouse = {
   y: undefined,
   type: undefined,
 };
+let keys = {
+  key: "up",
+};
 
 // Calculates the values with expressions
 grid.pixels.y = 0.5 * canvas.height - (grid.squareSize * grid.height) / 2;
 grid.pixels.width = grid.width * grid.squareSize;
 grid.pixels.height = grid.height * grid.squareSize;
 
-// Initialises variables
-let inGame = false;
-let scrollX = 0;
-let scrollY = 0;
+let scroll = {
+  x: 0,
+  y: 0,
+  speed: 10,
+};
+// TODO: Make false when done testing
+let inGame = true;
 
 function drawTitleScreen(titleSize) {
   c.fillStyle = "rgb(0, 51, 0)";
@@ -69,6 +75,14 @@ function drawGrid(xPos, yPos) {
   }
 }
 
+function keysMove(action, keysInput) {
+  // * ex MoveKeys(x += 5, ["w", "ArrowUp"])
+  if (keysInput.includes(keys.key)) {
+    eval(`scroll.${action}`);
+    // console.log(true);
+  }
+}
+
 // Sets the mouse coordinates
 window.addEventListener("mousemove", function (event) {
   mouse.x = event.x;
@@ -83,8 +97,8 @@ window.addEventListener("resize", function (event) {
 });
 
 // Moves the camera on key press
-window.addEventListener("keypress", function (event) {
-  if (event.key === "w") {
+window.addEventListener("keydown", function (event) {
+  /* if (event.key === "w") {
     scrollY += 50;
   }
   if (event.key === "a") {
@@ -95,7 +109,12 @@ window.addEventListener("keypress", function (event) {
   }
   if (event.key === "d") {
     scrollX -= 50;
-  }
+  } */
+  keys.key = event.key;
+});
+
+window.addEventListener("keyup", function () {
+  keys.key = "up";
 });
 
 window.addEventListener("mousedown", function (event) {
@@ -109,7 +128,7 @@ window.addEventListener("mousedown", function (event) {
   if (event.type == 2) {
     mouse.type = "right";
   }
-  console.log(mouse.type);
+  // console.log(mouse.type);
 });
 window.addEventListener("mouseup", function (event) {
   mouse.type = "up";
@@ -117,10 +136,18 @@ window.addEventListener("mouseup", function (event) {
 function loop() {
   requestAnimationFrame(loop);
   c.clearRect(0, 0, canvas.width, canvas.height);
+  // Input
+  keysMove(`y += ${scroll.speed}`, ["w", "ArrowUp"]);
+  keysMove(`x += ${scroll.speed}`, ["a", "ArrowLeft"]);
+  keysMove(`y -= ${scroll.speed}`, ["s", "ArrowDown"]);
+  keysMove(`x -= ${scroll.speed}`, ["d", "ArrowRight"]);
+
+  // Drawing
   if (!inGame) {
     drawTitleScreen(75);
   } else {
-    drawGrid(scrollX, scrollY);
+    drawGrid(scroll.x, scroll.y);
   }
+  // console.log(keys.key);
 }
 loop();
