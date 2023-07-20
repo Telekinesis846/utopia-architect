@@ -1,9 +1,12 @@
+//! CONSTANTS
 const canvas = document.querySelector("canvas"); // Makes the canvas variable the canvas element
+const c = canvas.getContext("2d"); // Sets the variable c to being able to draw on the canvas
+
+// CANVAS WIDTH AND HEIGHT
 canvas.width = canvas.clientWidth; // Sets the canvas width to the client width and the canvas height to the client height
 canvas.height = canvas.clientHeight;
 
-const c = canvas.getContext("2d"); // Sets the variable c to being able to draw on the canvas
-
+//! VARIABLES
 // Info about the grid
 let grid = {
   width: 4,
@@ -36,9 +39,10 @@ let scroll = {
   y: 0,
   speed: 10,
 };
-// TODO: Make false when done testing
-let inGame = true;
+//! Make false when not testing
+let inGame = false;
 
+//! FUNCTIONS
 function drawTitleScreen(titleSize) {
   c.fillStyle = "rgb(0, 51, 0)";
   c.textAlign = "center";
@@ -83,6 +87,63 @@ function keysMove(action, keysInput) {
   }
 }
 
+function hoveringOver(startX, startY, endX, endY, type) {
+  if (type == "4pos") {
+    if (
+      mouse.x >= startX &&
+      mouse.y >= startY &&
+      mouse.x <= endX &&
+      mouse.y <= endY
+    ) {
+      return true;
+    } else {
+      return false;
+    }
+  } else if (type == "2pos") {
+    if (
+      //! In this the variables are named wrongly because the 2pos type is being used, which uses the same structure as c.rect()
+      mouse.x >= startX &&
+      mouse.y >= startY &&
+      mouse.x <= endX + startX &&
+      mouse.y <= endY + startY
+    ) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+}
+//* Example: drawButton([50, 50, 50, 50], ["red", "blue"], ["red", "blue"], {[TEXT]})
+// At (50,50) with a height and width of 50, the fill would be red if not hover and green if hover, same with stroke, text not made yet
+function drawButton(posAndSize, fill, stroke, text) {
+  c.rect(posAndSize[0], posAndSize[1], posAndSize[2], posAndSize[3]);
+  if (
+    hoveringOver(
+      posAndSize[0],
+      posAndSize[1],
+      posAndSize[2],
+      posAndSize[3],
+      "2pos"
+    )
+  ) {
+    c.fillStyle = fill[0];
+    c.strokeStyle = stroke[0];
+  } else {
+    c.fillStyle = fill[1];
+    c.strokeStyle = stroke[1];
+    c.lineWidth = stroke[2];
+  }
+  // Fill controls
+  if (fill[0] != false) {
+    c.fill();
+  }
+  // Stroke controls
+  if (!stroke[0] == false) {
+    c.stroke();
+  }
+}
+
+//! EVENT LISTENERS
 // Sets the mouse coordinates
 window.addEventListener("mousemove", function (event) {
   mouse.x = event.x;
@@ -133,6 +194,8 @@ window.addEventListener("mousedown", function (event) {
 window.addEventListener("mouseup", function (event) {
   mouse.type = "up";
 });
+
+//! GAME CODE
 function loop() {
   requestAnimationFrame(loop);
   c.clearRect(0, 0, canvas.width, canvas.height);
