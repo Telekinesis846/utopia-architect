@@ -113,33 +113,69 @@ function hoveringOver(startX, startY, endX, endY, type) {
     }
   }
 }
-//* Example: drawButton([50, 50, 50, 50], ["red", "blue"], ["red", "blue"], {[TEXT]})
-// At (50,50) with a height and width of 50, the fill would be red if not hover and green if hover, same with stroke, text not made yet
+//* Example: drawButton([50, 50, 50, 50], ["red", "blue"], ["red", 10, "blue", 20], {content: ["No hover", Yes hover], fill: ["black", "white"], stroke: ["white", "black, pos: [[0, 0], [10, 10]] size: [50, 20], font:["Helvetica", "Times New Roman",]});
+// At (50,50) with a height and width of 50, the fill would be red if not hover and green if hover, same with stroke, the text when hovered will be "Yes hover", with a whte fill and black stroke
 function drawButton(posAndSize, fill, stroke, text) {
   c.rect(posAndSize[0], posAndSize[1], posAndSize[2], posAndSize[3]);
-  if (
-    hoveringOver(
-      posAndSize[0],
-      posAndSize[1],
-      posAndSize[2],
-      posAndSize[3],
-      "2pos"
-    )
-  ) {
+  let hovering =
+    (posAndSize[0], posAndSize[1], posAndSize[2], posAndSize[3], "2pos");
+
+  //* BUTTON
+  if (!hovering) {
     c.fillStyle = fill[0];
     c.strokeStyle = stroke[0];
+    c.lineWidth = stroke[1];
   } else {
     c.fillStyle = fill[1];
-    c.strokeStyle = stroke[1];
-    c.lineWidth = stroke[2];
+    c.strokeStyle = stroke[2];
+    c.lineWidth = stroke[3];
   }
   // Fill controls
-  if (fill[0] != false) {
+  if (fill != false) {
     c.fill();
   }
   // Stroke controls
-  if (!stroke[0] == false) {
+  if (!stroke == false) {
     c.stroke();
+  }
+  //* TEXT
+  if (!hovering) {
+    c.fillStyle = text.fill[0];
+    c.strokeStyle = text.stroke[0];
+    c.lineWidth = text.stroke[1];
+    c.font = `${text.scale[0]}px ${text.font[0]}`;
+
+    if (text != false && text != undefined) {
+      // Fill controls
+      if (text.fill != false) {
+        c.fillText(
+          text.content[0],
+          text.pos[0][0] + posAndSize[0],
+          text.pos[0][1],
+          posAndSize[1]
+        );
+      }
+      // Stroke controls
+      if (text.stroke != false) {
+        c.strokeText(text.content[0], text.pos[0][0], text.pos[0][1]);
+      }
+    }
+  } else {
+    c.fillStyle = text.fill[1];
+    c.strokeStyle = text.stroke[2];
+    c.lineWidth = text.stroke[3];
+    c.font = `${text.scale[1]}px ${text.font[1]}`;
+
+    if (text != false && text != undefined) {
+      // Fill controls
+      if (text.fill != false) {
+        c.fillText(text.content[1], text.pos[1][0], text.pos[1][1]);
+      }
+      // Stroke controls
+      if (text.stroke != false) {
+        c.strokeText(text.content[1], text.pos[1][0], text.pos[1][1]);
+      }
+    }
   }
 }
 
@@ -211,6 +247,17 @@ function loop() {
   } else {
     drawGrid(scroll.x, scroll.y);
   }
+  drawButton([50, 50, 50, 50], ["red", "blue"], ["blue", 10, "red", 20], {
+    content: ["No hover", "Yes hover"],
+    fill: ["black", "white"],
+    stroke: ["white", "black"],
+    pos: [
+      [0, 0],
+      [10, 10],
+    ],
+    size: [50, 20],
+    font: ["Times New Roman", "Lucida Handwriting"],
+  });
   // console.log(keys.key);
 }
 loop();
