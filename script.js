@@ -114,10 +114,13 @@ function hoveringOver(startX, startY, endX, endY, type) {
   }
 }
 
-function createButton(xPos, yPos, width, height, clickFunction) {
-  rect(xPos, yPos, width, height);
-  if (hoveringOver(xPos, yPos, width, height) && mouse.type !== "up") {
-    clickFunction;
+function createButton(xPos, yPos, width, height, mouseType, clickFunction) {
+  c.rect(xPos, yPos, width, height);
+  if (
+    hoveringOver(xPos, yPos, width, height, "2pos") &&
+    mouse.type === mouseType
+  ) {
+    eval(clickFunction);
   }
 }
 
@@ -189,17 +192,9 @@ function loop() {
   } else {
     drawGrid(scroll.x, scroll.y);
   }
-  drawButton([50, 50, 50, 50], ["red", "blue"], ["blue", 10, "red", 20], {
-    content: ["No hover", "Yes hover"],
-    fill: ["black", "white"],
-    stroke: ["white", "black"],
-    pos: [
-      [0, 0],
-      [10, 10],
-    ],
-    size: [50, 20],
-    font: ["Times New Roman", "Lucida Handwriting"],
-  });
+  c.fillStyle = "rgb(255, 0, 0)";
+  createButton(100, 100, 100, 100, "left", `console.log("CLICK")`);
+  c.fill();
   // console.log(keys.key);
 }
 loop();
