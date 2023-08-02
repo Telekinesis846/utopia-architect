@@ -1,4 +1,3 @@
-//! GAME CODE
 function loop() {
   requestAnimationFrame(loop);
   c.clearRect(0, 0, canvas.width, canvas.height);
