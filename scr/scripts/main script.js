@@ -43,15 +43,11 @@ let scroll = {
 let inGame = false;
 
 //! FUNCTIONS
-function drawTitleScreen(titleSize) {
+function drawTitleScreen(title, titleSize) {
   c.fillStyle = "rgb(0, 51, 0)";
   c.textAlign = "center";
   c.font = `${titleSize}px Lucida Console`;
-  c.fillText(
-    "Utopia Archiect",
-    0.5 * canvas.width - titleSize / 2,
-    titleSize + 30
-  );
+  c.fillText(title, 0.5 * canvas.width - titleSize / 2, titleSize + 30);
 }
 
 function drawGrid(xPos, yPos) {

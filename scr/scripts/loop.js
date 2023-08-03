@@ -9,13 +9,21 @@ function loop() {
 
   // Drawing
   if (!inGame) {
-    drawTitleScreen(75);
+    drawTitleScreen("Utopia Architect", 75);
   } else {
     drawGrid(scroll.x, scroll.y);
   }
   c.fillStyle = "rgb(255, 0, 0)";
-  createButton(100, 100, 100, 100, "left", `console.log("CLICK")`);
+  createButton(
+    0.5 * canvas.width - 100 / 2,
+    0.5 * canvas.height - 100 / 2,
+    100,
+    100,
+    "left",
+    `console.log("CLICK")`
+  );
   c.fill();
+
   // console.log(keys.key);
 }
 loop();
