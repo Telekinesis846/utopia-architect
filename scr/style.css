@@ -1,12 +1,38 @@
-* {
+canvas,
+body {
   border: 0;
   margin: 0;
   width: 100vw;
   height: 100vh;
+  /* background-color: rgb(222, 184, 135); */
+}
+body {
   overflow: hidden;
+  background-color: rgb(222, 184, 135);
 }
 canvas {
-  border: 0;
-  margin: 0;
-  background-color: rgb(222, 184, 135);
+  position: absolute;
+}
+
+h1 {
+  text-align: center;
+  font-size: 13rem;
+  margin-top: 1rem;
+  margin-bottom: 4rem;
+}
+
+.button-container {
+  text-align: center;
+}
+button {
+  width: 25rem;
+  height: 10rem;
+  font-size: 7rem;
+  background-color: rgb(173, 255, 47);
+  &:hover {
+    background-color: rgb(145, 214, 41);
+  }
+  &:active {
+    background-color: rgb(50, 207, 50);
+  }
 }
