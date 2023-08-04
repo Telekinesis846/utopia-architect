@@ -2,8 +2,10 @@ canvas,
 body {
   border: 0;
   margin: 0;
+  padding: 0;
   width: 100vw;
   height: 100vh;
+  position: relative;
   /* background-color: rgb(222, 184, 135); */
 }
 body {
@@ -19,12 +21,13 @@ h1 {
   font-size: 13rem;
   margin-top: 1rem;
   margin-bottom: 4rem;
+  cursor: default;
 }
 
-.button-container {
+.main-button-container {
   text-align: center;
 }
-button {
+.main-button-container > button {
   width: 25rem;
   height: 10rem;
   font-size: 7rem;
@@ -35,5 +38,24 @@ button {
   }
   &:active {
     background-color: rgb(50, 207, 50);
+  }
+}
+
+.other-button-container {
+  text-align: right;
+}
+.other-button-container > a > button {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 8rem;
+  height: 8rem;
+  border: 0.2rem solid blue;
+  background-color: rgb(47, 207, 255);
+  &:hover {
+    background-color: rgb(0, 195, 255);
+  }
+  &:active {
+    background-color: rgb(0, 167, 218);
   }
 }

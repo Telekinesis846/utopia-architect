@@ -1,5 +1,5 @@
 //! CONSTANTS
-const canvas = document.querySelector("canvas"); // Makes the canvas variable the canvas element
+//? const canvas = document.querySelector("canvas"); // Makes the canvas variable the canvas element
 const c = canvas.getContext("2d"); // Sets the variable c to being able to draw on the canvas
 
 // CANVAS WIDTH AND HEIGHT
