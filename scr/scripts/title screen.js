@@ -1,4 +1,5 @@
-let body = document.querySelector("body");
+const body = document.querySelector("body");
+const head = document.querySelector("head");
 
 function startGame() {
   // delete the title screen
@@ -8,6 +9,11 @@ function startGame() {
   // Add the canvas
   const newCanvas = document.createElement("canvas");
   body.appendChild(newCanvas);
-  gameSetup();
+
+  const gameSetupScript = document.createElement("script");
+  gameSetupScript.type = "text/javascript";
+  gameSetupScript.src = "scrscriptscanvasgame setup.js";
+  gameSetupScript.defer = "defer";
+  head.appendChild(gameSetupScript);
   loop();
 }
