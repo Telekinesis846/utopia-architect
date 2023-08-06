@@ -6,8 +6,8 @@ function startGame() {
   let deletedTitleScreen = body.removeChild(titleScreen);
 
   // Add the canvas
-  let canvas = document.createElement("canvas");
-  body.appendChild(canvas);
-  canvas = document.querySelector("canvas");
+  const newCanvas = document.createElement("canvas");
+  body.appendChild(newCanvas);
+  gameSetup();
   loop();
 }
