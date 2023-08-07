@@ -1,6 +1,8 @@
 const body = document.querySelector("body");
 const head = document.querySelector("head");
 
+let inGame = false;
+
 function startGame() {
   // delete the title screen
   let titleScreen = body.querySelector(".title-screen");
@@ -10,10 +12,11 @@ function startGame() {
   const newCanvas = document.createElement("canvas");
   body.appendChild(newCanvas);
 
-  const gameSetupScript = document.createElement("script");
-  gameSetupScript.type = "text/javascript";
-  gameSetupScript.src = "scrscriptscanvasgame setup.js";
-  gameSetupScript.defer = "defer";
-  head.appendChild(gameSetupScript);
-  loop();
+  // const gameSetupScript = document.createElement("script");
+  // gameSetupScript.type = "text/javascript";
+  // gameSetupScript.src = "scrscriptscanvasgame setup.js";
+  // gameSetupScript.defer = "defer";
+  // head.appendChild(gameSetupScript);
+
+  inGame = true;
 }
