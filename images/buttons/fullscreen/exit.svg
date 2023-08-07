@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="44.354271mm"
+   height="44.354279mm"
+   viewBox="0 0 44.354271 44.354279"
+   version="1.1"
+   id="svg5"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-68.936927,-59.956664)">
+    <path
+       style="fill:none;stroke:#c3c3c3;stroke-width:4.33917;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke"
+       d="m 86.121612,62.126249 v 15.01511 H 71.106508"
+       id="path1358-6" />
+    <path
+       style="fill:none;stroke:#c3c3c3;stroke-width:4.33917;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke"
+       d="M 96.106508,62.126249 V 77.141358 H 111.12161"
+       id="path1358-5-78" />
+    <path
+       style="fill:none;stroke:#c3c3c3;stroke-width:4.33917;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke"
+       d="M 86.121612,102.14136 V 87.126249 H 71.106508"
+       id="path1358-7-2" />
+    <path
+       style="fill:none;stroke:#c3c3c3;stroke-width:4.33917;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke"
+       d="M 96.106508,102.14136 V 87.12625 h 15.015102"
+       id="path1358-5-7-5" />
+  </g>
+</svg>

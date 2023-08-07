@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="44.354275mm"
+   height="44.354279mm"
+   viewBox="0 0 44.354275 44.354279"
+   version="1.1"
+   id="svg5"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0.18520999,0.18520999)">
+    <path
+       style="fill:none;stroke:#c3c3c3;stroke-width:4.33917;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke"
+       d="M 1.984375,16.999485 V 1.984375 h 15.015104"
+       id="path1358" />
+    <path
+       style="fill:none;stroke:#c3c3c3;stroke-width:4.33917;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke"
+       d="M 41.999479,16.999484 V 1.984375 H 26.984375"
+       id="path1358-5" />
+    <path
+       style="fill:none;stroke:#c3c3c3;stroke-width:4.33917;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke"
+       d="m 1.984375,26.984375 v 15.01511 h 15.015104"
+       id="path1358-7" />
+    <path
+       style="fill:none;stroke:#c3c3c3;stroke-width:4.33917;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke"
+       d="M 41.999479,26.984376 V 41.999485 H 26.984375"
+       id="path1358-5-7" />
+  </g>
+</svg>

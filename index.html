@@ -6,12 +6,15 @@
     <title>Utopia Architect</title>
     <link rel="stylesheet" href="scr/style.css" />
     <link rel="shortcut icon" href="images/logo/logo.svg" type="image/x-icon" />
-    <script defer src="scr\scripts\title screen.js"></script>
-    <!-- <script defer src="scr\scripts\canvas\game setup.js"></script> -->
+    <script defer src="scr\scripts\canvas\game setup.js"></script>
     <script defer src="scr\scripts\canvas\loop.js"></script>
+    <script defer src="scr\scripts\title screen.js"></script>
   </head>
   <body>
     <div class="title-screen">
+      <div class="top-buttons">
+        <button class="full-screen-button">Enter Fullscreen</button>
+      </div>
       <h1>Utopia Architect</h1>
       <div class="main-button-container">
         <button onClick="startGame()">Play</button>
@@ -24,6 +27,6 @@
         >
       </div>
     </div>
-    <!-- <canvas></canvas> -->
+    <canvas></canvas>
   </body>
 </html>
