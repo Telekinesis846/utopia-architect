@@ -4,14 +4,15 @@ const head = document.querySelector("head");
 let inGame = false;
 
 const fullScreenButton = document.querySelector(".full-screen-button");
+const fullScreenImage = document.querySelector(".full-screen-button > img");
 
 fullScreenButton.addEventListener("click", () => {
   if (window.innerHeight !== screen.height) {
     document.documentElement.requestFullscreen();
-    fullScreenButton.textContent = "Exit Fullscreen";
+    fullScreenImage.src = "images/buttons/fullscreen/exit.svg";
     return;
   }
-  fullScreenButton.textContent = "Enter Fullscreen";
+  fullScreenImage.src = "images/buttons/fullscreen/enter.svg";
   document.exitFullscreen();
 });
 
