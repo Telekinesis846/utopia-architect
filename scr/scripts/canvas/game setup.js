@@ -83,10 +83,9 @@ function drawGrid(xPos, yPos) {
 }
 
 function keysMove(action, keysInput) {
-  // * ex MoveKeys(x += 5, ["w", "ArrowUp"])
-  if (keysInput.includes(keys.key)) {
+  // * ex MoveKeys("x += 5", "w")
+  if (keys.all[keysInput]) {
     eval(`scroll.${action}`);
-    // console.log(true);
   }
 }
 
@@ -143,23 +142,13 @@ window.addEventListener("resize", function (event) {
 
 // Moves the camera on key press
 window.addEventListener("keydown", function (event) {
-  /* if (event.key === "w") {
-    scrollY += 50;
-  }
-  if (event.key === "a") {
-    scrollX += 50;
-  }
-  if (event.key === "s") {
-    scrollY -= 50;
-  }
-  if (event.key === "d") {
-    scrollX -= 50;
-  } */
-  keys.key = event.key;
+  keys.all[event.key] = true;
+  keys.isDown = true;
 });
 
-window.addEventListener("keyup", function () {
-  keys.key = "up";
+window.addEventListener("keyup", function (event) {
+  keys.all[event.key] = false;
+  keys.isDown = false;
 });
 
 window.addEventListener("mousedown", function (event) {
