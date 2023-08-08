@@ -7,6 +7,8 @@ function loop() {
   keysMove(`y -= ${scroll.speed}`, "s");
   keysMove(`x -= ${scroll.speed}`, "d");
 
+  testTile.render();
+
   drawGrid(scroll.x, scroll.y);
 
   // console.log(keys.key);

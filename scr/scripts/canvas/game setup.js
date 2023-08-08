@@ -133,6 +133,11 @@ class Tile {
     this.xPos = xPos;
     this.yPos = yPos;
     this.texture = texture;
+    this.image = document.createElement("img");
+    this.image.src = this.texture;
+  }
+  render() {
+    c.drawImage(this.image, this.xPos, this.yPos);
   }
 }
 
@@ -177,3 +182,9 @@ window.addEventListener("mousedown", function (event) {
 window.addEventListener("mouseup", function (event) {
   mouse.type = "up";
 });
+
+testTile = new Tile(
+  "images\buttons\fullscreenenter.svg",
+  canvas.width / 2,
+  canvas.height / 2
+);
