@@ -1,12 +1,3 @@
-// // https://stackoverflow.com/questions/22125865/how-to-wait-until-a-predicate-condition-becomes-true-in-javascript
-// function waitForCanvas() {
-//   if (inGame === false) {
-//     window.setTimeout(waitForCanvas, 500);
-//   } else {
-//     //! HOW DO I MAKE THE REST OF THE CODE RUN HERE, BUT NOT UP THERE
-//   }
-// }
-// waitForCanvas();
 //! CONSTANTS
 const canvas = document.querySelector("canvas"); // Makes the canvas variable the canvas element
 const c = canvas.getContext("2d"); // Sets the variable c to being able to draw on the canvas

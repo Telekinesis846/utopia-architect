@@ -64,9 +64,12 @@ h1 {
 }
 
 .full-screen-button {
+  background-color: grey;
+  aspect-ratio: 1/1;
+  height: 2.5rem;
   > img {
     aspect-ratio: 1/1;
     height: 2rem;
-    margin: 0;
+    margin: 0.25rem 0 0 0.25rem;
   }
 }

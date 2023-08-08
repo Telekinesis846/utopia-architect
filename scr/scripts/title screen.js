@@ -6,15 +6,21 @@ let inGame = false;
 const fullScreenButton = document.querySelector(".full-screen-button");
 const fullScreenImage = document.querySelector(".full-screen-button > img");
 
-fullScreenButton.addEventListener("click", () => {
+function toggleFullscreen() {
   if (window.innerHeight !== screen.height) {
     document.documentElement.requestFullscreen();
-    fullScreenImage.src = "images/buttons/fullscreen/exit.svg";
+    if (inGame === false) {
+      fullScreenImage.src = "images/buttons/fullscreen/exit.svg";
+    }
     return;
   }
-  fullScreenImage.src = "images/buttons/fullscreen/enter.svg";
+  if (inGame === false) {
+    fullScreenImage.src = "images/buttons/fullscreen/enter.svg";
+  }
   document.exitFullscreen();
-});
+}
+
+fullScreenButton.addEventListener("click", toggleFullscreen);
 
 function startGame() {
   // delete the title screen
