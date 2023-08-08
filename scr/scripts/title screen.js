@@ -2,6 +2,9 @@ const body = document.querySelector("body");
 const head = document.querySelector("head");
 
 let inGame = false;
+let game = {
+  level: {},
+};
 
 const fullScreenButton = document.querySelector(".full-screen-button");
 const fullScreenImage = document.querySelector(".full-screen-button > img");
@@ -27,16 +30,12 @@ function startGame() {
   let titleScreen = body.querySelector(".title-screen");
   let deletedTitleScreen = body.removeChild(titleScreen);
 
-  // // Add the canvas
-  // const newCanvas = document.createElement("canvas");
-  // body.appendChild(newCanvas);
-
-  // const gameSetupScript = document.createElement("script");
-  // gameSetupScript.type = "text/javascript";
-  // gameSetupScript.src = "scrscriptscanvasgame setup.js";
-  // gameSetupScript.defer = "defer";
-  // head.appendChild(gameSetupScript);
+  game.level.number = 0;
 
   inGame = true;
   loop();
+}
+
+function viewLevels() {
+  console.log("%cLevels Viewed!", "color: lime; font-size: 2rem;");
 }

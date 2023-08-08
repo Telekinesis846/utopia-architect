@@ -2,7 +2,7 @@
 const canvas = document.querySelector("canvas"); // Makes the canvas variable the canvas element
 const c = canvas.getContext("2d"); // Sets the variable c to being able to draw on the canvas
 
-// CANVAS WIDTH AND HEIGHT
+//! CANVAS WIDTH AND HEIGHT
 canvas.width = canvas.clientWidth; // Sets the canvas width to the client width and the canvas height to the client height
 canvas.height = canvas.clientHeight;
 
@@ -19,6 +19,14 @@ let grid = {
     height: undefined,
     lineWidth: 7,
   },
+  data: [
+    /*
+    * This is an example of the grid
+    [{}, {}, {}],
+    [{}, {}, {}],
+    [{}, {}, {}],
+    */
+  ],
 };
 
 // Calculates the values with expressions
@@ -116,6 +124,15 @@ function createButton(xPos, yPos, width, height, mouseType, clickFunction) {
     mouse.type === mouseType
   ) {
     eval(clickFunction);
+  }
+}
+
+//! CLASSES
+class Tile {
+  constructor(xPos, yPos, texture) {
+    this.xPos = xPos;
+    this.yPos = yPos;
+    this.texture = texture;
   }
 }
 

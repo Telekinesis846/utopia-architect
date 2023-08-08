@@ -51,6 +51,7 @@ h1 {
   text-align: right;
 }
 .other-button-container > a > button {
+  cursor: pointer;
   width: 8rem;
   height: 8rem;
   border: 0.2rem solid blue;
