@@ -67,6 +67,7 @@ h1 {
   background-color: grey;
   aspect-ratio: 1/1;
   height: 2.5rem;
+  cursor: pointer;
   > img {
     aspect-ratio: 1/1;
     height: 2rem;
