@@ -29,19 +29,21 @@ let grid = {
     lineWidth: 7,
   },
 };
+
+// Calculates the values with expressions
+grid.pixels.y = 0.5 * canvas.height - (grid.squareSize * grid.height) / 2;
+grid.pixels.width = grid.width * grid.squareSize;
+grid.pixels.height = grid.height * grid.squareSize;
+
 let mouse = {
   x: undefined,
   y: undefined,
   type: undefined,
 };
 let keys = {
-  key: "up",
+  isDown: false,
+  all: {},
 };
-
-// Calculates the values with expressions
-grid.pixels.y = 0.5 * canvas.height - (grid.squareSize * grid.height) / 2;
-grid.pixels.width = grid.width * grid.squareSize;
-grid.pixels.height = grid.height * grid.squareSize;
 
 let scroll = {
   x: 0,
@@ -82,9 +84,9 @@ function drawGrid(xPos, yPos) {
   }
 }
 
-function keysMove(action, keysInput) {
+function keysMove(action, keyInput) {
   // * ex MoveKeys("x += 5", "w")
-  if (keys.all[keysInput]) {
+  if (keys["all"][keyInput]) {
     eval(`scroll.${action}`);
   }
 }
@@ -142,12 +144,12 @@ window.addEventListener("resize", function (event) {
 
 // Moves the camera on key press
 window.addEventListener("keydown", function (event) {
-  keys.all[event.key] = true;
+  keys["all"][event.key] = true;
   keys.isDown = true;
 });
 
 window.addEventListener("keyup", function (event) {
-  keys.all[event.key] = false;
+  keys["all"][event.key] = false;
   keys.isDown = false;
 });
 
