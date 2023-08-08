@@ -129,12 +129,41 @@ function createButton(xPos, yPos, width, height, mouseType, clickFunction) {
 
 //! CLASSES
 class Tile {
-  constructor(xPos, yPos, texture) {
+  constructor(
+    xPos,
+    yPos,
+    sheet,
+    textureX,
+    textureY,
+    TextureWidth,
+    TextureHeight
+  ) {
     this.xPos = xPos;
     this.yPos = yPos;
-    this.texture = texture;
+
+    this.sheet = sheet;
+
+    this.textureX = textureX;
+    this.textureY = textureY;
+
+    this.width = TextureWidth;
+    this.height = TextureHeight;
+
     this.image = document.createElement("img");
-    this.image.src = this.texture;
+    this.image.src = this.sheet;
+  }
+  createSheet() {
+    let images = document.querySelectorAll("img");
+    let imagesContainer = document.querySelector("div #images");
+
+    for (const image of images) {
+      if (image.src !== this.sheet) {
+        let sheetImage = document.createElement("img");
+        sheetImage.src = this.sheet;
+
+        imagesContainer.appendChild(sheetImage);
+      }
+    }
   }
   render() {
     c.drawImage(this.image, this.xPos, this.yPos);
@@ -184,7 +213,12 @@ window.addEventListener("mouseup", function (event) {
 });
 
 testTile = new Tile(
-  "images\buttons\fullscreenenter.svg",
-  canvas.width / 2,
-  canvas.height / 2
+  10,
+  10,
+  "images/buttons/fullscreen/enter.svg",
+  0,
+  0,
+  20,
+  20
 );
+testTile.createSheet();

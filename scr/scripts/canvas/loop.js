@@ -12,4 +12,5 @@ function loop() {
   drawGrid(scroll.x, scroll.y);
 
   // console.log(keys.key);
+  testTile.render();
 }
